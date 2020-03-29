@@ -1,3 +1,7 @@
+# importing copy module
+import copy
+
+
 class Stack(object):
     """
     class variables
@@ -6,7 +10,7 @@ class Stack(object):
     sp = -1
 
     def __init__(self):
-        self.sp = - 1
+        self.sp = -1
 
     def __del__(self):
         pass
@@ -43,15 +47,39 @@ class Stack(object):
         itl = self.createIterator()
         itr = other.createIterator()
 
+        """
+        Print values for debugging purposes
+        """
+        print("Left Values:")
+        print("itl.first()", itl.first())
+        print("itl.isDone()", itl.isDone())
+        print("not itl.isDone()", not itl.isDone())
+        print("itl.next()", itl.next())
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+
+        print("Right Values:")
+        print("itr.first()", itr.first())
+        print("itr.isDone()", itr.isDone())
+        print("not itr.isDone()", not itr.isDone())
+        print("itr.next()", itr.next())
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+
+        print("rngl", range(itl.first(), (not itl.isDone()), itl.next()))
+        print("rngr", range(itr.first(), (not itr.isDone()), itr.next()))
+
         """// 4. Clients use the first(), isDone(), next(), and currentItem() protocol"""
         """for i, j in zip(range(x), range(y)):   simultaneous loop"""
         for i, j in zip(range(itl.first(), (not itl.isDone()), itl.next()),
                         range(itr.first(), (not itr.isDone()), itr.next())):
+            print("============================================================")
+            print(itl.first(), (not itl.isDone()), itl.next())
+            print(itr.first(), (not itr.isDone()), itr.next())
+            print("============================================================")
             b = itr.currentItem()
             a = itl.currentItem()
 
             if itl.currentItem() != itr.currentItem():
-                break
+                pass
         ans = (itl.isDone() & itr.isDone())
         del itl
         del itr
@@ -63,7 +91,7 @@ class StackIter(object):
     class variables
     """
     __stk = Stack()
-    __index = -1
+    __index = -15
 
     """
     class constructor
@@ -111,10 +139,10 @@ if __name__ == '__main__':
     """
         s2-s5 same as s1
     """
-    s2 = s1
-    s3 = s1
-    s4 = s1
-    s5 = s1
+    s2 = copy.deepcopy(s1)
+    s3 = copy.deepcopy(s1)
+    s4 = copy.deepcopy(s1)
+    s5 = copy.deepcopy(s1)
     """
         test the stack operations
     """
