@@ -125,6 +125,7 @@ class StackIter(object):
         s = self.__stk.size()
         return self.__stk.items[self.__index]
 
+
 def createIterator():
     return object.__new__(StackIter)
 
@@ -133,7 +134,7 @@ if __name__ == '__main__':
 
     s1 = Stack()
     # for i in range(1, 5, 1):
-    for i in range(5):
+    for i in range(1, 5):
         s1.push(i)
 
     """
