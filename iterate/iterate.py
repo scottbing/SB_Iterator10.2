@@ -6,18 +6,19 @@ class Stack(object):
     """
     class variables
     """
-    items = [0] * 10
+    items = []
     sp = -1
 
     def __init__(self):
         self.sp = -1
+        self.items = [0] * 10
 
     def __del__(self):
         pass
 
-    def push(self, input):
+    def push(self, item):
         self.sp += 1
-        self.items[self.sp] = input
+        self.items[self.sp] = item
 
     def pop(self):
         self.sp -= 1
@@ -91,7 +92,7 @@ class StackIter(object):
     class variables
     """
     __stk = Stack()
-    __index = -15
+    __index = -1
 
     """
     class constructor
@@ -99,6 +100,7 @@ class StackIter(object):
 
     def __init__(self):
         self.__stk = self
+        self._index = -1
 
     def __del__(self):
         pass
@@ -112,8 +114,7 @@ class StackIter(object):
         return self.__index
 
     def next(self):
-        self.__index += 1
-        return self.__index
+        return self.__index + 1
 
     def isDone(self):
         self.__stk.sp += 1
@@ -133,12 +134,12 @@ def createIterator():
 if __name__ == '__main__':
 
     s1 = Stack()
-    # for i in range(1, 5, 1):
-    for i in range(1, 5):
+    # for i in range(2, 5, 1):
+    for i in range(2, 5):
         s1.push(i)
 
     """
-        s2-s5 same as s1
+        s3-s5 same as s1
     """
     s2 = copy.deepcopy(s1)
     s3 = copy.deepcopy(s1)
